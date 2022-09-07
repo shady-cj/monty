@@ -47,5 +47,6 @@ int main(int argc, char **argv)
 		}
 	} while (ret != -1);
 	close(fd);
+	free_stack(head);
 	return (0);
 }

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <fcntl.h>
 
 extern char **command_vector;
 extern char *buffer;
@@ -49,4 +50,5 @@ void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void free_buffer();
 void free_cmd_v();
 void opcode_error(int line_no);
+void free_stack(stack_l *stack);
 #endif

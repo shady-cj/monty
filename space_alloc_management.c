@@ -17,6 +17,8 @@ void malloc_error(void)
  */
 void free_buffer()
 {
+	if (buffer == NULL)
+		return;
 	free(buffer);
 	buffer = NULL;
 }
@@ -38,4 +40,25 @@ void free_cmd_v()
 		i++;
 	}
 	free(command_vector);
+}
+
+/**
+ * free_stack - frees the doubly linked list
+ * @stack: the doubly linked list
+ * Return: void
+ */
+void free_stack(stack_l *stack)
+{
+	stack_l *ptr;
+
+	if (stack == NULL)
+		return;
+	ptr = stack;
+
+	while (ptr != NULL)
+	{
+		stack = ptr->next;
+		free(ptr);
+		ptr = stack;
+	}
 }

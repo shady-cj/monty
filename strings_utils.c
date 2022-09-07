@@ -73,10 +73,7 @@ void split(char *buffer)
 				command_vector[i] = malloc(sizeof(char) * buf_j);
 				if (command_vector[i] == NULL)
 				{
-					while (i > 0)
-						free(command_vector[i--]);
-					free(command_vector[i]);
-					free(command_vector);
+					free_cmd_v();
 					malloc_error();
 				}
 				j = 0;
@@ -96,7 +93,7 @@ void split(char *buffer)
 	else
 	{
 	 	command_vector[i][j] = '\0';
-		while (i <= 2)
+		while (i < 2)
 			command_vector[++i] = NULL;
 	}
 }
