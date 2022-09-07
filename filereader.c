@@ -14,7 +14,7 @@ int filereader(int fd, char **buffer)
 
 	str = malloc(sizeof(char) * 100);
 	if (str == NULL)
-		malloc_error();
+		return (-2);
 	do
 	{
 		ret = read(fd, &c, 1);

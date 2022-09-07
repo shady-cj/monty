@@ -41,10 +41,10 @@ typedef struct instruction_s
 } instruction_t;
 
 void push_op(stack_l **, unsigned int);
-void malloc_error(void);
+void malloc_error(stack_l *stack);
 int filereader(int fd, char **buffer);
 char *strip(char *buffer, int size);
-void split(char *buffer);
+void split(char *buffer, stack_l *stack);
 void (*map_instruction(char *opcode))(stack_l **, unsigned int);
 void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void free_buffer(char **buffer);

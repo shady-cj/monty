@@ -18,7 +18,7 @@ void push_op(stack_l **stack, unsigned int line_no)
 		push_error(line_no, *stack);
 	new = malloc(sizeof(stack_l));
 	if (new == NULL)
-		malloc_error();
+		malloc_error(*stack);
 	new->n = num;
 	new->next = NULL;
 	if (*stack == NULL)
