@@ -15,7 +15,7 @@ void push_op(stack_l **stack, unsigned int line_no)
 	if (check_char(command_vector[1]) == 1)
 		error = 1;
 	if (command_vector[1] == NULL || error)
-		push_error(line_no, *stack);
+		command_error(line_no, *stack, "usage: push integer");
 	new = malloc(sizeof(stack_l));
 	if (new == NULL)
 		malloc_error(*stack);
@@ -76,7 +76,7 @@ void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
 void pint_op(stack_l **stack, unsigned int line_no)
 {
 	if (*stack == NULL)
-		pint_error(*stack, line_no);
+		command_error(line_no, *stack, "can't pint, stack empty");
 	printf("%d\n", (*stack)->n);
 }
 
@@ -92,7 +92,7 @@ void pop_op(stack_l **stack, unsigned int line_no)
 	stack_l *ptr = NULL;
 
 	if (*stack == NULL)
-		pop_error(*stack, line_no);
+		command_error(line_no, *stack, "can't pop an empty stack");
 	
 	ptr = *stack;
 	*stack = (*stack)->next;
@@ -100,4 +100,31 @@ void pop_op(stack_l **stack, unsigned int line_no)
 	ptr = NULL;
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
+}
+
+
+/**
+ * swap_op - swaps the top two elements of the stack.
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+
+
+void swap_op(stack_l **stack, unsigned int line_no)
+{
+	stack_l *ptr = NULL;
+	stack_l *first = NULL;
+	stack_l *second = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		command_error(line_no, *stack, "can't swap, stack too short");
+	ptr = *stack;
+	first = ptr;
+	second = ptr->next;
+	first->next = second->next;
+	first->prev = second;
+	second->next = first;
+	second->prev = NULL;
+	*stack = second;
 }
