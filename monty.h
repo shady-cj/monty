@@ -45,6 +45,10 @@ void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void pint_op(stack_l **stack, unsigned int);
 void pop_op(stack_l **stack, unsigned int);
 void swap_op(stack_l **stack, unsigned int line_no);
+void add_op(stack_l **stack, unsigned int line_no);
+
+
+
 
 void malloc_error(stack_l *stack);
 int filereader(int fd, char **buffer);
