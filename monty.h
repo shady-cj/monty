@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+
+extern char **command_vector;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -34,5 +36,13 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_l **stack, unsigned int line_number);
 } instruction_t;
+
+void push_op(stack_l **, unsigned int);
+void malloc_error(void);
+int filereader(int fd, char **buffer);
+char *strip(char *buffer, int size);
+void split(char *buffer);
+void (*map_instruction(char *opcode))(stack_l **, unsigned int);
+void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 
 #endif

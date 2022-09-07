@@ -6,18 +6,19 @@
  * Return: The operation function
  */
 
-void (*map_instruction(char *opcode))(stack_t **, unsigned int)
+void (*map_instruction(char *opcode))(stack_l **, unsigned int)
 {
 	int index;
-	instruction_t insts[2] = {
+	instruction_t insts[3] = {
 		{"push", push_op},
+		{"pall", pall_op},
 		{NULL, NULL}
 	};
 
 	for (index = 0; index < 2; index++)
 	{
-		if (strcmp(insts[index][0], opcode) == 0)
-			return (insts[index][1]);
+		if (strcmp(insts[index].opcode, opcode) == 0)
+			return (insts[index].f);
 	}
 	return (NULL);
 }
