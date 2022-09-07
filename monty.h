@@ -43,7 +43,7 @@ typedef struct instruction_s
 void push_op(stack_l **, unsigned int);
 void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void pint_op(stack_l **stack, unsigned int);
-
+void pop_op(stack_l **stack, unsigned int);
 
 void malloc_error(stack_l *stack);
 int filereader(int fd, char **buffer);
@@ -56,5 +56,6 @@ void opcode_error(int line_no, stack_l *stack);
 void free_stack(stack_l *stack);
 void push_error(int line_no, stack_l *stack);
 void pint_error(stack_l *stack, int line_no);
+void pop_error(stack_l *stack, int line_no);
 int check_char(char *str);
 #endif

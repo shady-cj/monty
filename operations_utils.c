@@ -79,3 +79,25 @@ void pint_op(stack_l **stack, unsigned int line_no)
 		pint_error(*stack, line_no);
 	printf("%d\n", (*stack)->n);
 }
+
+
+/**
+ * pop_op - removes the top element of the stack.
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+void pop_op(stack_l **stack, unsigned int line_no)
+{
+	stack_l *ptr = NULL;
+
+	if (*stack == NULL)
+		pop_error(*stack, line_no);
+	
+	ptr = *stack;
+	*stack = (*stack)->next;
+	free(ptr);
+	ptr = NULL;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+}

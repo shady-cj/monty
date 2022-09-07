@@ -13,6 +13,7 @@ void (*map_instruction(char *opcode))(stack_l **, unsigned int)
 		{"push", push_op},
 		{"pall", pall_op},
 		{"pint", pint_op},
+		{"pop", pop_op},
 		{NULL, NULL}
 	};
 

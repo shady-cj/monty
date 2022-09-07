@@ -42,3 +42,18 @@ void pint_error(stack_l *stack, int line_no)
 	fprintf(stderr, "L%d: can't pint, stack empty\n", line_no);
 	exit(EXIT_FAILURE);
 }
+
+
+/**
+ * pop_error - handles pop command errors
+ * @line_no: Line number
+ * @stack: The top of the stack
+ * Return: void
+ */
+void pop_error(stack_l *stack, int line_no)
+{
+	free_stack(stack);
+	free_cmd_v();
+	fprintf(stderr, "L%d: can't pop an empty stack\n", line_no);
+	exit(EXIT_FAILURE);
+}
