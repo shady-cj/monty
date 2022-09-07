@@ -7,7 +7,7 @@ push 2
 
 
                            
-push 4
+push 4y
 
     push 5    
       push    6        

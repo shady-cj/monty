@@ -15,10 +15,7 @@ void push_op(stack_l **stack, unsigned int line_no)
 	if (num == 0 && strcmp(command_vector[1], "0\0") != 0)
 		error = 1;
 	if (command_vector[1] == NULL || error)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_no);
-		exit(EXIT_FAILURE);
-	}
+		push_error(line_no, *stack);
 	new = malloc(sizeof(stack_l));
 	if (new == NULL)
 		malloc_error();

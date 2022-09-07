@@ -1,6 +1,5 @@
 #include "monty.h"
 char **command_vector = NULL;
-char *buffer = NULL;
 int stack_type = 1;
 /**
  * main - The entry point into the monty app.
@@ -11,6 +10,7 @@ int stack_type = 1;
 int main(int argc, char **argv)
 {
 	int fd, ret, line_no = 0;
+	char *buffer = NULL;
 	stack_l *head = NULL;
 	void (*f)(stack_l **st, unsigned int line_no);
 
@@ -34,15 +34,15 @@ int main(int argc, char **argv)
 			buffer = strip(buffer, ret);
 			if (strlen(buffer) == 0)
 			{
-				free(buffer);
+				free_buffer(&buffer);
 				continue;
 			}
 			split(buffer);
 			f = map_instruction(command_vector[0]);
+			free_buffer(&buffer);
 			if (f == NULL)
-				opcode_error(line_no);
+				opcode_error(line_no, head);
 			f(&head, line_no);
-			free_buffer();
 			free_cmd_v();
 		}
 	} while (ret != -1);

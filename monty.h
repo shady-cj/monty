@@ -8,7 +8,6 @@
 #include <fcntl.h>
 
 extern char **command_vector;
-extern char *buffer;
 extern int stack_type;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -47,8 +46,9 @@ char *strip(char *buffer, int size);
 void split(char *buffer);
 void (*map_instruction(char *opcode))(stack_l **, unsigned int);
 void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
-void free_buffer();
+void free_buffer(char **buffer);
 void free_cmd_v();
-void opcode_error(int line_no);
+void opcode_error(int line_no, stack_l *stack);
 void free_stack(stack_l *stack);
+void push_error(int line_no, stack_l *stack);
 #endif

@@ -15,12 +15,12 @@ void malloc_error(void)
  * free_buffer - frees the main buffer and assigns null
  * Return: void
  */
-void free_buffer()
+void free_buffer(char **buffer)
 {
-	if (buffer == NULL)
+	if (*buffer == NULL)
 		return;
-	free(buffer);
-	buffer = NULL;
+	free(*buffer);
+	*buffer = NULL;
 }
 
 /**
