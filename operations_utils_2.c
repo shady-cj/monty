@@ -22,3 +22,15 @@ void add_op(stack_l **stack, unsigned int line_no)
 	free(first);
 	*stack = ptr;
 }
+
+/**
+ * nop_op - Doesn't do anything
+ * @stack: the stack
+ * @line_no: The line number
+ * Return: void
+ */
+void nop_op(stack_l __attribute__((unused))**stack,
+		unsigned int __attribute__((unused))line_no)
+{
+	return;
+}
