@@ -1,5 +1,7 @@
 #include "monty.h"
 char **command_vector = NULL;
+char *buffer = NULL;
+int stack_type = 1;
 /**
  * main - The entry point into the monty app.
  * @argc: The number of arguments passed in
@@ -9,7 +11,6 @@ char **command_vector = NULL;
 int main(int argc, char **argv)
 {
 	int fd, ret, line_no = 0;
-	char *buffer = NULL;
 	stack_l *head = NULL;
 	void (*f)(stack_l **st, unsigned int line_no);
 
@@ -39,13 +40,10 @@ int main(int argc, char **argv)
 			split(buffer);
 			f = map_instruction(command_vector[0]);
 			if (f == NULL)
-			{
-				fprintf(stderr, "L%d: ", line_no);
-				fprintf(stderr, "unknown instruction %s\n", command_vector[0]);
-				exit(EXIT_FAILURE);
-			}
+				opcode_error(line_no);
 			f(&head, line_no);
-			free(buffer);
+			free_buffer();
+			free_cmd_v();
 		}
 	} while (ret != -1);
 	close(fd);

@@ -30,11 +30,21 @@ void push_op(stack_l **stack, unsigned int line_no)
 		*stack = new;
 		return;
 	}
-	ptr = *stack;
-	while (ptr->next != NULL)
-		ptr = ptr->next;
-	ptr->next = new;
-	new->prev = ptr;
+	if (stack_type)
+	{
+		new->next = *stack;
+		new->prev = NULL;
+		(*stack)->prev = new;
+		*stack = new;
+	}
+	else
+	{
+		ptr = *stack;
+		while (ptr->next != NULL)
+			ptr = ptr->next;
+		ptr->next = new;
+		new->prev = ptr;
+	}
 }
 
 

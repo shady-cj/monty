@@ -7,6 +7,8 @@
 #include <string.h>
 
 extern char **command_vector;
+extern char *buffer;
+extern int stack_type;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -44,5 +46,7 @@ char *strip(char *buffer, int size);
 void split(char *buffer);
 void (*map_instruction(char *opcode))(stack_l **, unsigned int);
 void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
-
+void free_buffer();
+void free_cmd_v();
+void opcode_error(int line_no);
 #endif
