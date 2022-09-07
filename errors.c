@@ -9,9 +9,9 @@
 void opcode_error(int line_no, stack_l *stack)
 {
 	free_stack(stack);
-	free_cmd_v();
 	fprintf(stderr, "L%d: ", line_no);
 	fprintf(stderr, "unknown instruction %s\n", command_vector[0]);
+	free_cmd_v();	
 	exit(EXIT_FAILURE);
 }
 

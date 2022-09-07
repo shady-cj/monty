@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 extern char **command_vector;
 extern int stack_type;
@@ -51,4 +52,5 @@ void free_cmd_v();
 void opcode_error(int line_no, stack_l *stack);
 void free_stack(stack_l *stack);
 void push_error(int line_no, stack_l *stack);
+int check_char(char *str);
 #endif

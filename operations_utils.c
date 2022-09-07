@@ -12,7 +12,7 @@ void push_op(stack_l **stack, unsigned int line_no)
 	stack_l *ptr, *new;
 	int num = atoi(command_vector[1]), error = 0;
 
-	if (num == 0 && strcmp(command_vector[1], "0\0") != 0)
+	if (check_char(command_vector[1]) == 1)
 		error = 1;
 	if (command_vector[1] == NULL || error)
 		push_error(line_no, *stack);
@@ -43,8 +43,6 @@ void push_op(stack_l **stack, unsigned int line_no)
 		new->prev = ptr;
 	}
 }
-
-
 /**
  * pall_op - prints all the numbers on the stack from top to
  * bottom
