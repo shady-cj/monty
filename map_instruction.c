@@ -18,6 +18,7 @@ void (*map_instruction(char *opcode))(stack_l **, unsigned int)
 		{"add", add_op},
 		{"nop", nop_op},
 		{"sub", sub_op},
+		{"div", div_op},
 		{NULL, NULL}
 	};
 
