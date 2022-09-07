@@ -48,6 +48,7 @@ void swap_op(stack_l **stack, unsigned int line_no);
 void add_op(stack_l **stack, unsigned int line_no);
 void sub_op(stack_l **stack, unsigned int line_no);
 void div_op(stack_l **stack, unsigned int line_no);
+void mul_op(stack_l **stack, unsigned int line_no);
 void nop_op(stack_l __attribute__((unused))**stack,
                 unsigned int __attribute__((unused))line_no);
 
