@@ -28,3 +28,17 @@ void push_error(int line_no, stack_l *stack)
 	fprintf(stderr, "L%d: usage: push integer\n", line_no);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * pint_error - handles pint operation errors
+ * @line_no: The line number
+ * @stack: The top og the stack pointer
+ * Return: void
+ */
+void pint_error(stack_l *stack, int line_no)
+{
+	free_stack(stack);
+	free_cmd_v();
+	fprintf(stderr, "L%d: can't pint, stack empty\n", line_no);
+	exit(EXIT_FAILURE);
+}

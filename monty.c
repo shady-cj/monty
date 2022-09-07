@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 				free_buffer(&buffer);
 				continue;
 			}
-			split(buffer, head);
+			split(&buffer, head);
 			f = map_instruction(command_vector[0]);
 			free_buffer(&buffer);
 			if (f == NULL)

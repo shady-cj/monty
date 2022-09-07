@@ -64,3 +64,18 @@ void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
 		ptr = ptr->next;
 	}
 }
+
+
+/**
+ * pint_op - prints the value at the top of the stack, followed by
+ * a new line.
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+void pint_op(stack_l **stack, unsigned int line_no)
+{
+	if (*stack == NULL)
+		pint_error(*stack, line_no);
+	printf("%d\n", (*stack)->n);
+}

@@ -9,13 +9,14 @@
 void (*map_instruction(char *opcode))(stack_l **, unsigned int)
 {
 	int index;
-	instruction_t insts[3] = {
+	instruction_t insts[] = {
 		{"push", push_op},
 		{"pall", pall_op},
+		{"pint", pint_op},
 		{NULL, NULL}
 	};
 
-	for (index = 0; index < 2; index++)
+	for (index = 0; insts[index].opcode; index++)
 	{
 		if (strcmp(insts[index].opcode, opcode) == 0)
 			return (insts[index].f);

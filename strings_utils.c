@@ -45,22 +45,22 @@ char *strip(char *buffer, int size)
  * Return: void
  */
 
-void split(char *buffer, stack_l *stack)
+void split(char **buffer, stack_l *stack)
 {
-	char *s = buffer;
+	char *s = *buffer;
 	int buf_i = 3, buf_j = 100, i = 0, j = 0, found = 0;
 	char d = ' ';
 
 	command_vector = malloc(sizeof(char *) * buf_i);
 	if (command_vector == NULL)
 	{
-		free_buffer(&buffer);
+		free_buffer(buffer);
 		malloc_error(stack);
 	}
 	command_vector[i] = malloc(sizeof(char) * buf_j);
 	if (command_vector[i] == NULL)
 	{
-		free_buffer(&buffer);
+		free_buffer(buffer);
 		malloc_error(stack);
 	}
 	while (*s && (i < 2))
@@ -76,7 +76,7 @@ void split(char *buffer, stack_l *stack)
 				command_vector[i] = malloc(sizeof(char) * buf_j);
 				if (command_vector[i] == NULL)
 				{
-					free_buffer(&buffer);
+					free_buffer(buffer);
 					malloc_error(stack);
 				}
 				j = 0;
