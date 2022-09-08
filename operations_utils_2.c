@@ -85,7 +85,7 @@ void div_op(stack_l **stack, unsigned int line_no)
 }
 
 /**
- * mul_op - adds the top two elements of the stack.
+ * mul_op - multiplies the top two elements of the stack.
  * @stack: The stack
  * @line_no: The line number
  * Return: void
