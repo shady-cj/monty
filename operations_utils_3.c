@@ -25,3 +25,19 @@ void mod_op(stack_l **stack, unsigned int line_no)
 	free(first);
 	*stack = ptr;
 }
+
+/**
+ * pchar_op - prints the char at the top of the stack, followed by a new line.
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+void pchar_op(stack_l **stack, unsigned int line_no)
+{
+	if (*stack == NULL)
+		command_error(line_no, *stack, "can't pchar, stack empty");
+
+	if ((*stack)->n > 127 || (*stack)->n < 0)
+		command_error(line_no, *stack, "can't pchar, value out of range");
+	printf("%c\n", (*stack)->n);
+}
