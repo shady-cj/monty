@@ -39,6 +39,11 @@ int main(int argc, char **argv)
 				free_buffer(&buffer);
 				continue;
 			}
+			if (buffer[0] == '#')
+			{
+				free_buffer(&buffer);
+				continue;
+			}
 			split(&buffer, head);
 			f = map_instruction(command_vector[0]);
 			free_buffer(&buffer);
