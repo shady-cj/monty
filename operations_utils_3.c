@@ -41,3 +41,29 @@ void pchar_op(stack_l **stack, unsigned int line_no)
 		command_error(line_no, *stack, "can't pchar, value out of range");
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * pstr_op - prints the string starting at the top of the stack,
+ * followed by a new line.
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+
+void pstr_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
+{
+	stack_l *ptr;
+
+	if (*stack == NULL)
+		printf("\n");
+	ptr = *stack;
+
+	while (ptr != NULL)
+	{
+		if (ptr->n > 127 || ptr->n < 1)
+			break;
+		printf("%c", ptr->n);
+		ptr = ptr->next;
+	}
+	printf("\n");
+}
