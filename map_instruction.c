@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * map_instructions - Maps intructions to the operation functions
+ * map_instruction - Maps intructions to the operation functions
  * @opcode - The operation code
  * Return: The operation function
  */
 
-void (*map_instruction(char *opcode))(stack_l **, unsigned int)
+void (*map_instruction(char *opcode))(stack_l **stack, unsigned int)
 {
 	int index;
 	instruction_t insts[] = {

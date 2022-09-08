@@ -2,7 +2,7 @@
 
 /**
  * opcode_error - takes care of instructions error
- * @line_no - Line number
+ * @line_no: Line number
  * @stack: The stack
  * Return: void
  */
@@ -20,6 +20,7 @@ void opcode_error(int line_no, stack_l *stack)
  * pop, swap, add etc..
  * @line_no: The line number
  * @stack: The stack of doubly linked list
+ * @message: The error message
  * Return: void
  */
 void command_error(int line_no, stack_l *stack, char *message)

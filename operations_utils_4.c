@@ -7,8 +7,8 @@
  * Return: void
  */
 
-void queue_op(stack_l __attribute__((unused))**stack,
-		unsigned int __attribute__((unused))line_no)
+void queue_op(stack_l __attribute__((unused)) **stack,
+		unsigned int __attribute__((unused)) line_no)
 {
 	stack_type = 0;
 }
@@ -21,8 +21,8 @@ void queue_op(stack_l __attribute__((unused))**stack,
  * Return: void
  */
 
-void stack_op(stack_l __attribute__((unused))**stack,
-		unsigned int __attribute__((unused))line_no)
+void stack_op(stack_l __attribute__((unused)) **stack,
+		unsigned int __attribute__((unused)) line_no)
 {
 	stack_type = 1;
 }

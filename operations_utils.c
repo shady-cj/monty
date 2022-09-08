@@ -93,7 +93,6 @@ void pop_op(stack_l **stack, unsigned int line_no)
 
 	if (*stack == NULL)
 		command_error(line_no, *stack, "can't pop an empty stack");
-	
 	ptr = *stack;
 	*stack = (*stack)->next;
 	free(ptr);

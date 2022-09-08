@@ -2,6 +2,7 @@
 /**
  * malloc_error - is invoked when there is an error during
  * mallocing
+ * @stack: The stack
  * Return: void
  */
 
@@ -15,6 +16,7 @@ void malloc_error(stack_l *stack)
 
 /**
  * free_buffer - frees the main buffer and assigns null
+ * @buffer: the buffer string
  * Return: void
  */
 void free_buffer(char **buffer)
