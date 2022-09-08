@@ -30,13 +30,20 @@ int main(int argc, char **argv)
 		ret = filereader(fd, &buffer);
 		if (ret != -1)
 		{
+			if (ret == -2)
+				malloc_error(head);
 			buffer = strip(buffer, ret);
 			if (strlen(buffer) == 0)
 			{
 				free_buffer(&buffer);
 				continue;
 			}
-			split(buffer);
+			if (buffer[0] == '#')
+			{
+				free_buffer(&buffer);
+				continue;
+			}
+			split(&buffer, head);
 			f = map_instruction(command_vector[0]);
 			free_buffer(&buffer);
 			if (f == NULL)

@@ -41,16 +41,30 @@ typedef struct instruction_s
 } instruction_t;
 
 void push_op(stack_l **, unsigned int);
-void malloc_error(void);
+void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
+void pint_op(stack_l **stack, unsigned int);
+void pop_op(stack_l **stack, unsigned int);
+void swap_op(stack_l **stack, unsigned int line_no);
+void add_op(stack_l **stack, unsigned int line_no);
+void sub_op(stack_l **stack, unsigned int line_no);
+void div_op(stack_l **stack, unsigned int line_no);
+void mul_op(stack_l **stack, unsigned int line_no);
+void mod_op(stack_l **stack, unsigned int line_no);
+void nop_op(stack_l __attribute__((unused))**stack,
+                unsigned int __attribute__((unused))line_no);
+
+
+
+
+void malloc_error(stack_l *stack);
 int filereader(int fd, char **buffer);
 char *strip(char *buffer, int size);
-void split(char *buffer);
+void split(char **buffer, stack_l *stack);
 void (*map_instruction(char *opcode))(stack_l **, unsigned int);
-void pall_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void free_buffer(char **buffer);
 void free_cmd_v();
 void opcode_error(int line_no, stack_l *stack);
 void free_stack(stack_l *stack);
-void push_error(int line_no, stack_l *stack);
+void command_error(int line_no, stack_l *stack, char *message);
 int check_char(char *str);
 #endif

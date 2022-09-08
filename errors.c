@@ -16,15 +16,17 @@ void opcode_error(int line_no, stack_l *stack)
 }
 
 /**
- * push_error - handles push command errors
+ * command_error - handles command errors such as push, pint
+ * pop, swap, add etc..
  * @line_no: The line number
  * @stack: The stack of doubly linked list
  * Return: void
  */
-void push_error(int line_no, stack_l *stack)
+void command_error(int line_no, stack_l *stack, char *message)
 {
 	free_stack(stack);
 	free_cmd_v();
-	fprintf(stderr, "L%d: usage: push integer\n", line_no);
+	fprintf(stderr, "L%d: %s\n", line_no, message);
 	exit(EXIT_FAILURE);
 }
+

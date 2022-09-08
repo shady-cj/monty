@@ -5,8 +5,10 @@
  * Return: void
  */
 
-void malloc_error(void)
+void malloc_error(stack_l *stack)
 {
+	free_cmd_v();
+	free_stack(stack);
 	fprintf(stderr, "Error: malloc failed\n");
 	exit(EXIT_FAILURE);
 }
