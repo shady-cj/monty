@@ -54,6 +54,10 @@ void pchar_op(stack_l **stack, unsigned int line_no);
 void pstr_op(stack_l **stack, unsigned int line_no);
 void rotl_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void rotr_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
+void stack_op(stack_l __attribute__((unused))**stack,
+                unsigned int __attribute__((unused))line_no);
+void queue_op(stack_l __attribute__((unused))**stack,
+                unsigned int __attribute__((unused))line_no);
 void nop_op(stack_l __attribute__((unused))**stack,
                 unsigned int __attribute__((unused))line_no);
 
