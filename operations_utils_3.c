@@ -92,3 +92,32 @@ void rotl_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
 	top->next = NULL;
 	top->prev = ptr;
 }
+
+
+
+/**
+ * rotr_op - The opcode rotr rotates the stack to the bottom
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+
+void rotr_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
+{
+	stack_l *top, *ptr = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	top = *stack;
+	while (top->next != NULL)
+	{
+		ptr = top;
+		top = top->next;
+	}
+	ptr->next = NULL;
+	top->prev = NULL;
+	top->next = *stack;
+	(*stack)->prev = top;
+	*stack = top;
+}

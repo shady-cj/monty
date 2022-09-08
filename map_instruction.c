@@ -24,6 +24,7 @@ void (*map_instruction(char *opcode))(stack_l **, unsigned int)
 		{"pchar", pchar_op},
 		{"pstr", pstr_op},
 		{"rotl", rotl_op},
+		{"rotr", rotr_op},
 		{NULL, NULL}
 	};
 
