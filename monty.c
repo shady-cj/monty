@@ -25,8 +25,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
-	do
-	{
+	do {
 		line_no++;
 		ret = filereader(fd, &buffer);
 		if (ret != -1)

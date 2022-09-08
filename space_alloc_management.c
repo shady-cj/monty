@@ -27,7 +27,7 @@ void free_buffer(char **buffer)
  * free_cmd_v - free command_vector and assigns null
  * Return: void
  */
-void free_cmd_v()
+void free_cmd_v(void)
 {
 	int i = 0;
 
