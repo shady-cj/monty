@@ -15,16 +15,10 @@ int main(int argc, char **argv)
 	void (*f)(stack_l **st, unsigned int line_no);
 
 	if (argc > 2 || argc < 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
-	}
+		arg_error();
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return (EXIT_FAILURE);
-	}
+		file_error(argv[1]);
 	do {
 		line_no++;
 		ret = filereader(fd, &buffer);

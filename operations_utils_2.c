@@ -29,10 +29,10 @@ void add_op(stack_l **stack, unsigned int line_no)
  * @line_no: The line number
  * Return: void
  */
-void nop_op(stack_l __attribute__((unused))**stack,
-		unsigned int __attribute__((unused))line_no)
+void nop_op(stack_l **stack, unsigned int line_no)
 {
-	return;
+	(void)stack;
+	(void)line_no;
 }
 
 

@@ -54,12 +54,10 @@ void pchar_op(stack_l **stack, unsigned int line_no);
 void pstr_op(stack_l **stack, unsigned int line_no);
 void rotl_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
 void rotr_op(stack_l **stack, unsigned int __attribute__((unused))line_no);
-void stack_op(stack_l __attribute__((unused))**stack,
-                unsigned int __attribute__((unused))line_no);
-void queue_op(stack_l __attribute__((unused))**stack,
-                unsigned int __attribute__((unused))line_no);
-void nop_op(stack_l __attribute__((unused))**stack,
-                unsigned int __attribute__((unused))line_no);
+void stack_op(stack_l **stack, unsigned int line_no);
+void queue_op(stack_l **stack, unsigned int line_no);
+void nop_op(stack_l **stack, unsigned int line_no);
+
 
 
 
@@ -75,5 +73,7 @@ void free_cmd_v();
 void opcode_error(int line_no, stack_l *stack);
 void free_stack(stack_l *stack);
 void command_error(int line_no, stack_l *stack, char *message);
+void file_error(char *filename);
+void arg_error(void);
 int check_char(char *str);
 #endif

@@ -42,6 +42,7 @@ char *strip(char *buffer, int size)
 /**
  * split - splits command strings into arrays of commands
  * @buffer: The buffer to split
+ * @stack: The stack
  * Return: void
  */
 
@@ -108,7 +109,7 @@ void split_helper(char **buffer, stack_l *stack)
 		command_vector[i] = NULL;
 	else
 	{
-	 	command_vector[i][j] = '\0';
+		command_vector[i][j] = '\0';
 		while (i < 2)
 			command_vector[++i] = NULL;
 	}

@@ -1,5 +1,26 @@
 #include "monty.h"
 
+
+/**
+ * arg_error - Handles incorrect arguments error
+ * Return:void
+ */
+void arg_error(void)
+{
+	fprintf(stderr, "USAGE: monty file\n");
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * file_error - Handles file error. unable to open or read
+ * @filename: The filename
+ * Return: void
+ */
+void file_error(char *filename)
+{
+	fprintf(stderr, "Error: Can't open file %s\n", filename);
+	exit(EXIT_FAILURE);
+}
 /**
  * opcode_error - takes care of instructions error
  * @line_no: Line number
