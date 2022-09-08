@@ -68,6 +68,7 @@ void malloc_error(stack_l *stack);
 int filereader(int fd, char **buffer);
 char *strip(char *buffer, int size);
 void split(char **buffer, stack_l *stack);
+void split_helper(char **buffer, stack_l *stack);
 void (*map_instruction(char *opcode))(stack_l **, unsigned int);
 void free_buffer(char **buffer);
 void free_cmd_v();

@@ -47,9 +47,7 @@ char *strip(char *buffer, int size)
 
 void split(char **buffer, stack_l *stack)
 {
-	char *s = *buffer;
-	int buf_i = 3, buf_j = 100, i = 0, j = 0, found = 0;
-	char d = ' ';
+	int buf_i = 3, buf_j = 100, i = 0;
 
 	command_vector = malloc(sizeof(char *) * buf_i);
 	if (command_vector == NULL)
@@ -63,6 +61,21 @@ void split(char **buffer, stack_l *stack)
 		free_buffer(buffer);
 		malloc_error(stack);
 	}
+	split_helper(buffer, stack);
+}
+
+/**
+ * split_helper - Is an helper function for the main split function
+ * @buffer: The buffer string
+ * @stack: The stack
+ * Return: void
+ */
+void split_helper(char **buffer, stack_l *stack)
+{
+	char *s = *buffer;
+	int i = 0, j = 0, found = 0, buf_j = 100;
+	char d = ' ';
+
 	while (*s && (i < 2))
 	{
 		if (*s == d)
