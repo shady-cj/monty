@@ -67,3 +67,28 @@ void pstr_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl_op - The opcode rotl rotates the stack to the top
+ * @stack: The stack
+ * @line_no: The line number
+ * Return: void
+ */
+
+void rotl_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
+{
+	stack_l *top, *ptr;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	top = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	ptr = *stack;
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	ptr->next = top;
+	top->next = NULL;
+	top->prev = ptr;
+}
