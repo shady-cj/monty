@@ -54,13 +54,7 @@ void pstr_op(stack_l **stack, unsigned int __attribute__((unused))line_no)
 {
 	stack_l *ptr;
 
-	if (*stack == NULL)
-	{
-		printf("\n");
-		return;
-	}
 	ptr = *stack;
-
 	while (ptr != NULL)
 	{
 		if (ptr->n > 127 || ptr->n < 1)
