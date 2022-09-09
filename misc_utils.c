@@ -10,6 +10,8 @@ int check_char(char *str)
 {
 	int i = 0;
 
+	if (str[i] == '-')
+		i++;
 	while (str[i])
 	{
 		if (str[i] > 57 || str[i] < 48)
