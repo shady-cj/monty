@@ -10,12 +10,13 @@
 void push_op(stack_l **stack, unsigned int line_no)
 {
 	stack_l *ptr, *new;
-	int num = atoi(command_vector[1]), error = 0;
+	int num, error = 0;
 
-	if (check_char(command_vector[1]) == 1)
+	if (command_vector[1] == NULL || check_char(command_vector[1]) == 1)
 		error = 1;
-	if (command_vector[1] == NULL || error)
+	if (error)
 		command_error(line_no, *stack, "usage: push integer");
+	num = atoi(command_vector[1]);
 	new = malloc(sizeof(stack_l));
 	if (new == NULL)
 		malloc_error(*stack);
